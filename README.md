@@ -1,5 +1,5 @@
 ## illusion App
-This project was generated using python version 3.6. This project uses a news API that generates news highlights from different sources.
+An app for posting and viewing blogs online.
 
 ### By  Tellvinch imani
 
@@ -12,7 +12,7 @@ This project was generated using python version 3.6. This project uses a news AP
 
 ` $ cd Blog`
 
-3.Install all required prerequisities.
+3.Install all required precequisities.
 
 ` $ pip install flask`
 
