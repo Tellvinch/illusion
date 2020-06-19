@@ -1,7 +1,7 @@
 ## illusion App
 This project was generated using python version 3.6. This project uses a news API that generates news highlights from different sources.
 
-### Author : John Muasa
+### By  Tellvinch imani
 
 ## SETUP INSTRUCTIONS:
 1.Clone the repository 
