@@ -39,32 +39,4 @@
            line-height: 50px;
        }
 </style>
-       <div class="intro">
-               
-                
-                   <!-- Links -->
-                   <div class="collapse navbar-collapse justify-content-end" id="nav-content">   
-                   <ul class="navbar-nav">
-                       {%  if current_user.is_authenticated %}
-                       <li class="nav-item">
-                       <a class="nav-link" href="{{url_for('auth.login')}}">Account</a>
-                       </li>
-                       <li class="nav-item">
-                       <a class="nav-link" href="{{url_for('main.blogs')}}">Create Blog</a>
-                       </li>
-                       <li class="nav-item">
-                               <a class="nav-link" href="{{url_for('auth.logout')}}">Log out</a>
-                               </li>
-                       {% else %}
-                   <li class="nav-item">
-                   <a class="nav-link" href="{{url_for('auth.login')}}">Login</a>
-                   </li>
-                   <li class="nav-item">
-                   <a class="nav-link" href="{{url_for('auth.register')}}">Register</a>
-                   {% endif %}
-                   </li>
-                   </ul>
-                   </nav>
        
-                   
-           </div>
