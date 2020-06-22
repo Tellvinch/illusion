@@ -15,7 +15,7 @@
             font-weight: bolder;
         }
        body{
-           background-color: #F5F5F5;
+           background-color: white;
        }
        
        h2{
@@ -46,7 +46,7 @@
                    </button>
                    
                    <!-- Brand -->
-                   <a class="navbar-brand" href="{{url_for('main.index')}}">TRIGGER</a>
+                   <a class="navbar-brand" href="{{url_for('main.index')}}">ILLUSION</a>
                    
                    <!-- Links -->
                    <div class="collapse navbar-collapse justify-content-end" id="nav-content">   
@@ -59,7 +59,7 @@
                        <a class="nav-link" href="{{url_for('main.blogs')}}">Create Blog</a>
                        </li>
                        <li class="nav-item">
-                               <a class="nav-link" href="{{url_for('auth.logout')}}">logout</a>
+                               <a class="nav-link" href="{{url_for('auth.logout')}}">Log out</a>
                                </li>
                        {% else %}
                    <li class="nav-item">
