@@ -1,7 +1,7 @@
 from flask import render_template,redirect,url_for,abort,request, flash
 from . import main
 from flask_login import login_required, current_user
-from .. models import User,Blog,Comments
+from .. models import User,Blog
 from .forms import BlogForm,CommentsForm
 from app import db
 from ..requests import get_quote
@@ -10,11 +10,9 @@ from ..requests import get_quote
 def index():
     title = "G-Blogs"
     blogs = Blog.query.all()
-    show_quote = get_quote()
-    quote = show_quote['quote']
-    quote_author = show_quote['author']
+    quote = get_quote()
     
-    return render_template("index.html", title = title, blogs = blogs, quote = quote,quote_author = quote_author )
+    return render_template("index.html", title = title, blogs = blogs, quote = quote )
 
 
 @main.route('/blogs', methods = ['GET','POST'])

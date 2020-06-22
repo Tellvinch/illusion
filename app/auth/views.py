@@ -2,7 +2,7 @@ from flask import render_template, redirect,url_for,flash,abort,request
 from ..models import User
 from .forms import RegistrationForm,LoginForm
 from . import auth
-from .. import db,bcrypt
+from .. import db
 from flask_login  import login_user, logout_user, login_required, current_user
 
 @auth.route('/register', methods = ["GET","POST"])
@@ -11,7 +11,7 @@ def register():
         return redirect(url_for('main.index'))
     form = RegistrationForm()
     if form.validate_on_submit():
-        hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+        hashed_password =generate_password_hash(form.password.data).decode('utf-8')
         user = User(username = form.username.data, email=form.email.data, password = hashed_password)
 
         user.save_user()

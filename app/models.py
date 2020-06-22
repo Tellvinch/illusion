@@ -33,7 +33,7 @@ class Blog(db.Model):
     content = db.Column(db.String(255))
     date_posted = db.Column(db.DateTime, nullable = False, default = datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
-    comments = db.relationship('Comments', backref = 'author' , lazy = True)
+    # comments = db.relationship('Comments', backref = 'author' , lazy = True)
     
     
     def save_blog(self):
@@ -45,21 +45,21 @@ class Blog(db.Model):
         return f"Blog ('{self.title}', '{self.date_posted}'')"
     
 
-class Comments(db.Model):
-    __tablename__ = 'comments'
+# class Comments(db.Model):
+#     __tablename__ = 'comments'
     
-    id = db.Column(db.Integer, primary_key = True)
-    comment = db.column(db.String(255))
-    blog_id = db.Column(db.Integer, db.ForeignKey("blogs.id"))
-    user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
+#     id = db.Column(db.Integer, primary_key = True)
+#     comment = db.column(db.String(255))
+#     blog_id = db.Column(db.Integer, db.ForeignKey("blogs.id"))
+#     user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
     
-    def save_comment(self):
-        db.session.add(self)
-        db.session.commit()
+#     def save_comment(self):
+#         db.session.add(self)
+#         db.session.commit()
         
         
-    def ___repr__(self):
-        return f"Comments('{self.comment}')"
+#     def ___repr__(self):
+#         return f"Comments('{self.comment}')"
         
 
     
@@ -67,8 +67,7 @@ class Quote:
    '''
    quote class to define quote object
    '''
-   def __init__(self,id,quote,author):
-       self.id = id
+   def __init__(self,quote,author):
        self.quote = quote
        self.author = author
        
