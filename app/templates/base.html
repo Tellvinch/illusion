@@ -32,7 +32,7 @@ li{
     height:80vh;
     opacity:100;
 }
-nav{
+.navbar{
     background:#E0F7FA;
     line-height: 50px;
 }
@@ -60,10 +60,10 @@ p{
 <body>
     
 <div class="intro">
-    <nav class="navbar navbar-expand-sm navbar-light bg-faded">
+    <nav class="navbar navbar-expand-sm ">
         
         <!-- Brand -->
-        <a class="navbar-brand" href="{{url_for('main.index')}}"  style="font-size: 50px;">Illusion</a>
+        <a class="" href="{{url_for('main.index')}}"  style="font-size: 50px;">Illusion</a>
         
         <!-- Links -->
         <div class="collapse navbar-collapse justify-content-end" id="nav-content">   
@@ -76,7 +76,7 @@ p{
             <a class="nav-link" href="{{url_for('main.blogs')}}">Create Blog</a>
             </li>
             <li class="nav-item">
-                    <a class="nav-link" href="{{url_for('auth.logout')}}">logout</a>
+                    <a class="nav-link" href="{{url_for('auth.logout')}}">Logout</a>
                     </li>
             {% else %}
         <li class="nav-item">
