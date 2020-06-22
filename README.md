@@ -42,4 +42,5 @@ To get more help on the Python CLI use ng help or go check out the Python CLI RE
 
 ## CONTACT INFORMATION
 For any feedback contact at : tellvinchimani@gmail.com
-### [MIT LICENSE](https://github.com/Tellvinch/illusion/blob/master/license.md)
+
+### [MIT LICENSE](https://github.com/Tellvinch/illusion/blob/master/License.md)

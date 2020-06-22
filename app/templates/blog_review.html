@@ -1,68 +1,93 @@
-{%  extends 'base.html'  %}
-{% block content %}
-<style>
-        h4{
-           color:#18FFFF;
-           }
-           h5{
-               font-family: Arial, Helvetica, sans-serif;
-           }
-           p{
-               font-size: 45px;
-           }
-       </style>
-       
-<div class="row">
-     
-    <div class="col-md-6">
-        <div class="card-deck">
-                <article class="card">
-                        <div class="card-body">
-                            <h4  class="card-title">{{blog.title}}</h4>
-                            <p class="card-content">{{blog.content}}</p>
-                            <div class="article-metadate">
-                                    <h6> Posted By : {{blog.author.username}}</h6>
-                                    <small class="text-muted"> Posted on : {{blog.date_posted.strftime('%Y-%m-%d')}}</small>
-                                </div>
-                                {%  if blog.author == current_user %}
-                                    <div>
-                                        <!-- <a href="url_for('main.update_details' id = blog.id)" class="btn btn-secondary btn-sm">Update</a> -->
-                                        <button type="button" class="btn btn-danger btn-sm m-1" data-toggle="modal" data-target="#deleteModal">Delete</button>
-                                        
-                                    </div>
+{% extends 'base.html' %} 
+{% import "bootstrap/wtf.html" as wtf %}
 
-                                {%  endif  %}
-                        </div>
-                    </article>
-                </div>
+{% block content %}
+
+<style>
+  h4 {
+    color: #18ffff;
+  }
+  h5 {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  p {
+    font-size: 45px;
+  }
+</style>
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="card-deck">
+      <article class="card">
+        <div class="card-body">
+          <h4 class="card-title">{{blog.title}}</h4>
+          <p class="card-content">{{blog.content}}</p>
+          <div class="article-metadate">
+            <h6>Posted By : {{blog.author.username}}</h6>
+            <small class="text-muted">
+              Posted on : {{blog.date_posted.strftime('%Y-%m-%d')}}</small
+            >
+          </div>
+          {% if blog.author == current_user %}
+          <div>
+            <!-- <a href="url_for('main.update_details' id = blog.id)" class="btn btn-secondary btn-sm">Update</a> -->
+            <button
+              type="button"
+              class="btn btn-danger btn-sm m-1"
+              data-toggle="modal"
+              data-target="#deleteModal"
+            >
+              Delete
+            </button>
+          </div>
+
+          {% endif %}
         </div>
-        <div>
-          <!-- {% for comment in comments %}
-          <cite>{{comment.comment}}</cite>
-          {% endfor %}
-        </div> -->
-        <!-- Modal -->
-<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="deleteModalLabel">Delete Post?</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <form action="{{url_for('main.delete_post', id = blog.id)}}" method="POST">
-              <input type="submit" class="btn btn-danger" value="Delete">
-          </form>
+      </article>
+    </div>
+  </div>
+  <div>
+    {{ wtf.quick_form(comment_form) }}
+    <div
+      class="modal fade"
+      id="deleteModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="deleteModalLabel">Delete Post?</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+            <form
+              action="{{url_for('main.delete_post', id = blog.id)}}"
+              method="POST"
+            >
+              <input type="submit" class="btn btn-danger" value="Delete" />
+            </form>
+          </div>
         </div>
       </div>
     </div>
   </div>
-     
 
-</div>        
-
-
-{%  endblock %}
+  {% endblock %}
+</div>

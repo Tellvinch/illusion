@@ -1,7 +1,7 @@
 from flask import render_template,redirect,url_for,abort,request, flash
 from . import main
 from flask_login import login_required, current_user
-from .. models import User,Blog
+from .. models import User,Blog,Comment
 from .forms import BlogForm,CommentsForm
 from app import db
 from ..requests import get_quote
@@ -11,6 +11,7 @@ def index():
     title = "G-Blogs"
     blogs = Blog.query.all()
     quote = get_quote()
+    
     
     return render_template("index.html", title = title, blogs = blogs, quote = quote )
 
@@ -33,20 +34,21 @@ def blogs():
 
 @main.route('/details/<int:id>', methods = ['GET','POST'])
 @login_required
+
 def details(id):
-    blog = Blog.query.get_or_404(id)
-    # form = CommentsForm()
-    # comments = Comments.query.all()
+    blog = Blog.query.get(id)
+    form = CommentsForm()
     
-    # if form.validate_on_submit():
-    #     comment = form.comment.data
-    #     new_comment = Comments(comment = comment)
-    #     new_comment.save_comment()
+    
+    if form.validate_on_submit():
+        comment = form.comment.data
+        new_comment = Comment(comment = comment,blog_id = blog)
+        new_comment.save_comment()
         
-    #     return redirect(url_for('main.details'))
+        return redirect(url_for('main.details'))
         
     
-    return render_template('blog_review.html', blog = blog)
+    return render_template('blog_review.html', blog = blog, comment_form = form)
 
 
 @main.route('/details/<int:id>/update', methods = ['GET','POST'])

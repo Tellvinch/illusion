@@ -5,20 +5,17 @@ from . import auth
 from .. import db
 from flask_login  import login_user, logout_user, login_required, current_user
 
-@auth.route('/register', methods = ["GET","POST"])
+@auth.route('/register',methods = ["GET","POST"])
 def register():
-    if current_user.is_authenticated:
-        return redirect(url_for('main.index'))
     form = RegistrationForm()
     if form.validate_on_submit():
-        hashed_password =generate_password_hash(form.password.data).decode('utf-8')
-        user = User(username = form.username.data, email=form.email.data, password = hashed_password)
-
-        user.save_user()
-        flash(f"Account Created for {form.username.data}!","success")
-        
-        return redirect(url_for("auth.login"))
-    return render_template('auth/register.html', form = form)
+        user = User(email = form.email.data, username = form.username.data,password = form.password.data)
+        db.session.add(user)
+        db.session.commit()
+        # mail_message("Welcome to illusion","email/welcome_user",user.email,user=user)
+        return redirect(url_for('auth.login'))
+        title = "New Account"
+    return render_template('auth/register.html', registration_form=form)
 
 
 @auth.route('/login',methods=['GET','POST'])
