@@ -3,6 +3,8 @@ An app for posting and viewing blogs online.
 
 ### By  Tellvinch imani
 
+[screenshot](shot1.png)
+
 ## SETUP INSTRUCTIONS:
 1.Clone the repository 
 
