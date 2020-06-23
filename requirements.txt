@@ -5,7 +5,7 @@ autopep8==1.5.3
 backports.functools-lru-cache==1.6.1
 click==7.1.2
 configparser==4.0.2
-cryptography==2.1.4
+cryptography==2.3
 dominate==2.5.1
 duplicity==0.7.17
 enum34==1.1.6
