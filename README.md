@@ -3,7 +3,12 @@ An app for posting and viewing blogs online.
 
 ### By  Tellvinch imani
 
-<img src=“shot1.png” raw=true alt=“screenshot”/>
+## Screenshot
+![](shot1.png)
+
+## Description
+An app for posting and viewing blogs online.A user is able to register or login,read blogs,comment on blogs 
+and even delete blogs.
 
 ## SETUP INSTRUCTIONS:
 1.Clone the repository 
