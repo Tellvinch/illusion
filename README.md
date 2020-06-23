@@ -3,7 +3,7 @@ An app for posting and viewing blogs online.
 
 ### By  Tellvinch imani
 
-[screenshot](shot1.png)
+<img src=“shot1.png” raw=true alt=“screenshot”/>
 
 ## SETUP INSTRUCTIONS:
 1.Clone the repository 
